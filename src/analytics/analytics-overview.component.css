@@ -1,0 +1,7 @@
+.border-default {
+  border: 2px solid rgba(0,0,0,.03)!important;
+}
+
+.card-body {
+  padding: 10px;
+}

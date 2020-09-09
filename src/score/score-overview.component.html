@@ -1,0 +1,39 @@
+<div>
+  <div class="card">
+    <div class="card-header bg-white">
+      <div clas="row">
+        <h4 style="display: inline-block;">&nbsp;&nbsp;Live Score</h4>
+        <div class="float-right">
+          <button type="button" class="btn btn-success" style="margin-left: 10px" (click)="exportGrid()">Export as CSV</button>
+          <button type="button" class="btn btn-info" style="margin-left: 10px" (click)="refreshData()">Refresh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card-body">
+      <div class="card-body">
+        <div class="form-group col-sm-4">
+          <label for="filter">Filter</label>
+          <select class="form-control" (click)="filterData(filter.value)" name="filter" #filter>
+            <option *ngFor="let dropdown of dropdowns" id="filter" [value]="dropdown">{{dropdown}}
+            </option>
+          </select>  
+        </div>
+      </div>
+      <div class="card border-info" id="bordered-panel">
+        <ag-grid-angular style="height:400px;"
+          class="ag-theme-balham"
+          [columnDefs]="columnDefs"
+          [rowData]="rowData"
+          [gridOptions]="gridOptions"
+          [defaultColDef]="defaultColDef">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>
+
+
