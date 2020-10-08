@@ -43,15 +43,20 @@ export class NavBarComponent {
 				'IsActive': false
 			},
 			{
+				'Title': 'Alerts',
+				'Location': '/alerts',
+				'IsActive': false
+			},
+			{
 				'Title': 'Ticket Status',
 				'Location': '/tickets',
 				'IsActive': false
 			},
-			{
-				'Title': 'Server and Log Monitoring',
-				'Location': '/server',
-				'IsActive': false
-			},
+			// {
+			// 	'Title': 'Server and Log Monitoring',
+			// 	'Location': '/server',
+			// 	'IsActive': false
+			// },
 			{
 				'Title': 'FAQs',
 				'Location': '/faqs',

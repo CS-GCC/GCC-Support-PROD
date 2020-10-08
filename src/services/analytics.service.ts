@@ -8,63 +8,52 @@ import { QuestionStats, RegionStats, LanguageStats, WeeklyStats } from 'src/anal
 export class AnalyticsService {
 
   constructor(private http: HttpClient) {}
-  endpoint: string = 'https://global-ta-challenge.herokuapp.com';
+  endpoint: string = ' https://gcc-global-dev.herokuapp.com';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Basic ' + btoa('gcc2020monitoring:gcc-2020-monitoring-123')
+    })
+  };
 
   getAttemptsPerQuestion(): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/attemptsPerQuestion`);
+    return this.http.get<any>(`${this.endpoint}/monitoring/attemptsPerQuestion`, this.httpOptions);
   }
 
   getCorrectSubmissionsPerRegion(): Observable<any[]> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/correctSubmissionsPerRegion`);
+    return this.http.get<any>(`${this.endpoint}/monitoring/correctSubmissionsPerRegion`, this.httpOptions);
   }
 
   getSuccessfulAttemptsPerQuestion(): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/successfulAttemptsPerQuestion`);
+    return this.http.get<any>(`${this.endpoint}/monitoring/successfulAttemptsPerQuestion`, this.httpOptions);
   }
 
   getUnsuccessfulAttemptsPerQuestion(): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/unsuccessfulAttemptsPerQuestion`);
+    return this.http.get<any>(`${this.endpoint}/monitoring/unsuccessfulAttemptsPerQuestion`, this.httpOptions);
   }
 
   getNumberOfSubmissionsPerLanguage(): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerLanguage`)
+    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerLanguage`, this.httpOptions)
   } 
 
   getNumberOfSubmissionsPerWeek(): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerWeek`);
+    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerWeek`, this.httpOptions);
   }
 
-  getParticipantsPerRegion(): RegionStats[] {
-    return [
-      { Region: 'US', Value: 400 },
-      { Region: 'EMEA', Value: 506 },
-      { Region: 'Switzerland', Value: 312 }
-    ];
+  getParticipantsPerRegion(): Observable<any> {
+    return this.http.get<any>(`${this.endpoint}/monitoring/participantsPerRegion`, this.httpOptions);
   }
 
-  getSuccessfulSubmissionsPerWeek(question: string): WeeklyStats[] {
-    return [
-      { Week: 1, Value: 132 },
-      { Week: 2, Value: 157 },
-      { Week: 3, Value: 176 },
-      { Week: 4, Value: 300 },
-    ];
+  getSuccessfulSubmissionsPerWeek(question: string): Observable<any> {
+    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerWeek/${question}`, this.httpOptions);
   }
 
-  getNoOfSubmissionsPerLanguage(question: string): LanguageStats[] {
-    return [
-      { Language: 'C', Value: 104 },
-      { Language: 'C++', Value: 56 },
-      { Language: 'Java', Value: 48 },
-      { Language: 'Python', Value: 92 }
-    ];
+  getNoOfSubmissionsPerLanguage(question: string): Observable<any> {
+    return this.http.get<any>(`${this.endpoint}/monitoring/submissionsPerLanguage/${question}`, this.httpOptions);
   }
 
-  getCorrectSubmissionsPerRegionForQuestion(question: string): RegionStats[] {
-    return [
-      { Region: 'US', Value: 400 },
-      { Region: 'EMEA', Value: 506 },
-      { Region: 'Switzerland', Value: 312 }
-    ];
+  getCorrectSubmissionsPerRegionForQuestion(question: string): Observable<any> {
+    return this.http.get<any>(`${this.endpoint}/monitoring/correctSubmissionsPerRegion/${question}`, this.httpOptions);
   }
 }
