@@ -5,7 +5,7 @@ import { Alert } from 'src/alerts/alert-model';
 
 @Injectable()
 export class AlertsService {
-  endpoint: string = 'https://gcc-global.herokuapp.com';
+  endpoint: string = 'https://gcc-global-dev.herokuapp.com';
   
   constructor(private http: HttpClient) { }
 
@@ -45,8 +45,12 @@ export class AlertsService {
     return this.http.get<boolean>(`${this.endpoint}/updateContestant/${contestantId}/${universityName}`, this.httpOptions);
   }
 
-  setUniversityForRegion(universityName: string) {
-    return this.http.get<boolean>(`${this.endpoint}/updateContestant/`, this.httpOptions);
+  setUniversityForRegion(universityName: string, region: string) {
+    return this.http.post<string[]>(`${this.endpoint}/team/${region}/add`, [universityName], this.httpOptions);
+  }
+
+  setRegionForContestant(contestantId: string, region: string) {
+    return this.http.get<boolean>(`${this.endpoint}/contestant/editRegion/${contestantId}/${region}`, this.httpOptions);
   }
 }
 
