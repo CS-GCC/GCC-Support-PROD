@@ -5,7 +5,7 @@ import { Alert } from 'src/alerts/alert-model';
 
 @Injectable()
 export class AlertsService {
-  endpoint: string = 'https://gcc-global-dev.herokuapp.com';
+  endpoint: string = 'https://gcc-global.herokuapp.com';
   
   constructor(private http: HttpClient) { }
 
