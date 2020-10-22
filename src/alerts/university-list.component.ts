@@ -60,7 +60,7 @@ export class UniversityListComponent {
       {
         headerName: 'Sr. No.',
         valueGetter: "node.rowIndex + 1",
-        width: 500,
+        width: 100,
         filter: 'agTextColumnFilter',
         cellStyle: { 'white-space': 'normal' }
       },

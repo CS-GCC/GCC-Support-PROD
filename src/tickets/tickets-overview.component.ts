@@ -190,8 +190,8 @@ export class TicketsOverviewComponent {
   getColumnDefs(): ColDef[] {
     return [
       {
-        headerName: 'Ticket Id',
-        field: 'id',
+        headerName: 'Contestant Id',
+        field: 'contestantId',
         width: 120,
         filter: false
       },

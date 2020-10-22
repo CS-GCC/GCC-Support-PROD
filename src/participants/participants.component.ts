@@ -139,13 +139,13 @@ export class ParticipantsComponent {
       //   hide: true,
       //   filter: false
       // },
-      {
-        headerName: 'Contestant Id',
-        field: 'id',
-        width: 180,
-        filter: 'agTextColumnFilter',
-        editable: true
-      },
+      // {
+      //   headerName: 'Contestant Id',
+      //   field: 'id',
+      //   width: 180,
+      //   filter: 'agTextColumnFilter',
+      //   editable: true
+      // },
       {
         headerName: 'Contestant Name',
         field: 'name',
