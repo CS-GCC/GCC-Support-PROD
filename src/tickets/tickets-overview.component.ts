@@ -73,13 +73,14 @@ export class TicketsOverviewComponent {
   }
 
   async loadTickets() {
-    this.ticketsList = await this.ticketsService.getTickets().toPromise();
-    this.ticketsList = this.ticketsList.filter(ticket => this.isTicketValid(ticket.timestamp));
+    const list = await this.ticketsService.getTickets().toPromise();
+    this.ticketsList = list.filter(ticket => this.isTicketValid(ticket.timestamp));
   }
 
   isTicketValid(dateSent){
     var d1 = new Date();
-    d1.setFullYear(2020, 10, 23);
+    d1.setFullYear(2020, 9, 23);
+    d1.setHours(0, 0, 0, 0);
     var d2 = new Date(dateSent);
     return d2>=d1;
   }
