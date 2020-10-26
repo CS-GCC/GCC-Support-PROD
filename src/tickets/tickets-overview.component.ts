@@ -90,7 +90,7 @@ export class TicketsOverviewComponent {
 
   isTicketValid(dateSent){
     var d1 = new Date();
-    d1.setFullYear(2020, 8, 23);
+    d1.setFullYear(2020, 9, 23);
     d1.setHours(0, 0, 0, 0);
     var d2 = new Date(dateSent);
     return d2>=d1;

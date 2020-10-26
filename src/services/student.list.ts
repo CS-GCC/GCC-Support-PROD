@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class studentlist {
-  studentlisturl: string = ' https://gcc-global-dev.herokuapp.com';
+  studentlisturl: string = ' https://gcc-global.herokuapp.com';
 
   constructor(
     private http: HttpClient) { }
