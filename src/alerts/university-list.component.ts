@@ -47,7 +47,7 @@ export class UniversityListComponent {
       filter: true,
       floatingFilter: true,
       resizable: true,
-      autoHeight: true
+      autoHeight: true,
     };
   }
 
@@ -69,7 +69,8 @@ export class UniversityListComponent {
         field: 'name',
         width: 500,
         filter: 'agTextColumnFilter',
-        cellStyle: { 'white-space': 'normal' }
+        cellStyle: { 'white-space': 'normal' },
+        editable: true,
       },
     ];
   }
