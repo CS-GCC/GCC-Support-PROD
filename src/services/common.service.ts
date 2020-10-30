@@ -23,7 +23,7 @@ export class CommonService {
   }
 
   loadUniversities(region: string): Observable<string[]> {
-    return this.http.get<string[]>(` https://gcc-global.herokuapp.com/universitylist/${region}`);
+    return this.http.get<string[]>(` https://gcc-global-dev.herokuapp.com/universitylist/${region}`);
   }
 
   loadRegions(): string[] {
@@ -76,6 +76,14 @@ export class CommonService {
       { Category: 'Registration', 'Name': 'Reis Gardner' },
       { Category: 'Registration', 'Name': 'Ryan Regal' },
       { Category: 'Registration', 'Name': 'Florian Lehmann' },
+    ];
+  }
+
+  loadLevel(): string[]{
+    return [
+      'easy',
+      'medium',
+      'hard'
     ];
   }
 }

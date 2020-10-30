@@ -12,4 +12,5 @@ export class ParticipantsService {
   getParticipants(): Observable<Participant[]> {
     return this.http.get<Participant[]>(`${this.endpoint}/challenge/getAll`);
   }
+
 }
