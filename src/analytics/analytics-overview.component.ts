@@ -115,11 +115,11 @@ export class AnalyticsOverviewComponent {
         ctx.restore();
       }
     }];
-    await this.prepareDoughnutChartForSubmissionsPerLanguage();
-    await this.prepareDoughnutChartForCorrectSubmissionsPerRegion();
-    await this.prepareBarChartForAttemptsPerQuestion();
-    await this.prepareBarChartForSubmissionsPerWeek();
-    await this.prepareLineCharForAcceptedVsRejectedSolutionsPerQuestion();
+    this.prepareDoughnutChartForSubmissionsPerLanguage();
+    this.prepareDoughnutChartForCorrectSubmissionsPerRegion();
+    this.prepareBarChartForAttemptsPerQuestion();
+    this.prepareBarChartForSubmissionsPerWeek();
+    this.prepareLineCharForAcceptedVsRejectedSolutionsPerQuestion();
   }
 
   async prepareLineCharForAcceptedVsRejectedSolutionsPerQuestion() {

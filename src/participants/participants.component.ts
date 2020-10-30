@@ -181,7 +181,7 @@ export class ParticipantsComponent {
       {
         headerName: 'Graduation Year',
         field: 'graduationYear',
-        width: 100,
+        width: 80,
         filter: 'agTextColumnFilter',
       },
       {
@@ -198,6 +198,18 @@ export class ParticipantsComponent {
         headerName: 'Git UserName',
         field: 'gitUsername',
         width: 120,
+        filter: 'agTextColumnFilter',
+      },
+      {
+        headerName: 'level',
+        field: 'level',
+        width: 90,
+        filter: 'agTextColumnFilter',
+      },
+      {
+        headerName: 'Title',
+        field: 'title',
+        width: 80,
         filter: 'agTextColumnFilter',
       },
       {
