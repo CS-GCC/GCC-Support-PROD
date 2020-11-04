@@ -23,7 +23,7 @@ export class CommonService {
   }
 
   loadUniversities(region: string): Observable<string[]> {
-    return this.http.get<string[]>(` https://gcc-global-dev.herokuapp.com/universitylist/${region}`);
+    return this.http.get<string[]>(` https://gcc-global.herokuapp.com/universitylist/${region}`);
   }
 
   loadRegions(): string[] {

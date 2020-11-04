@@ -25,16 +25,12 @@ export class GcchomeService {
     return this.httpClient.get<Participant[]>(`${this.endpoint}/challenge/getAll`, this.adminHttpOptions);
   }
 
-   // ping a get API to get the highest score of the challenge
-
-  getHighestScore() {
-  }
-
-  // ping a get API to get the top scorer of the challenge
   
   getTopScorer(): Observable<any> {
     return this.httpClient.get<any>(`${this.endpoint}/leaderboard/GLOBAL?from=0&limit=1`, this.adminHttpOptions);
   }
+
+
 
   getGlobalStats() : Observable<any> {
     return this.httpClient.get(`${this.endpoint}/leaderboard/globalTotals`, this.adminHttpOptions);
@@ -42,6 +38,14 @@ export class GcchomeService {
 
   getScores(): Observable<LIST[]> {
     return this.httpClient.get<LIST[]>(`${this.endpoint}/scores/question/all/GLOBAL`, this.adminHttpOptions);
+  }
+
+  getBasicDetails() {
+    return this.httpClient.get<any>(`${this.endpoint}/facts/quick/GLOBAL`, this.adminHttpOptions);
+  }
+
+  getRegionFacts() {
+    return this.httpClient.get<any>(`${this.endpoint}/facts/quick/unified`, this.adminHttpOptions);
   }
 
   timeLeftDays : number = 0;

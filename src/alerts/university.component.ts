@@ -28,6 +28,7 @@ export class UniversityComponent {
   contestantIdLevel: string;
   currentLevel: string;
   unlockLevelMessage: any;
+  selectUnlockLevel: Boolean;
   
   constructor(
     private alertService: AlertsService,
@@ -95,23 +96,15 @@ export class UniversityComponent {
   }
 
   async onUnlockLevel(){
+    this.selectUnlockLevel = true;
     try {
       if(this.contestantIdLevel.trim() === '' && this.level === ''){
         this.toastr.error('Please fill contestant id and select level!', 'Error');
         return;
       }
       else{
-        const result =  this.alertService.unlockLevelForContestant(this.contestantIdLevel, this.level);
-        
-     //   this.toastr.success(this.unlockLevelMessage);  
-
-        console.log(result);
-        result.subscribe(
-          x=>{console.log(x)}
-        )
+        const result =  this.alertService.unlockLevelForContestant(this.contestantIdLevel, this.level).toPromise().then().catch(err => this.toastr.info(err.error.text));
       }
-      
-    //  this.toastr.success('level unlocked successfully!', 'Success');
     }catch (e){
       this.toastr.error("Level unlock failed!", 'Error');
       return;

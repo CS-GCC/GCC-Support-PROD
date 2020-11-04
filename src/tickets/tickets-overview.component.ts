@@ -92,13 +92,13 @@ export class TicketsOverviewComponent {
 
   isTicketValid(dateSent){
     var d1 = new Date();
-    d1.setFullYear(2020, 8, 23);
+    d1.setFullYear(2020, 9, 23);
     d1.setHours(0, 0, 0, 0);
     var d2 = new Date(dateSent);
     return d2>=d1;
   }
 
-/*   onChangeAssignedTo(name: string) {
+  onChangeAssignedTo(name: string) {
     this.rowData = JSON.parse(JSON.stringify(this.tabData.filter(ticket => ticket.assignee === name)));
     this.isEscalatedCleared = true;
     this.isAssignedCleared = false;
@@ -117,7 +117,7 @@ export class TicketsOverviewComponent {
     this.isEscalatedCleared = true;
     this.isAssignedCleared = true;
     this.isStatusCleared = false;
-  } */
+  }
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -193,11 +193,11 @@ export class TicketsOverviewComponent {
       onRowDoubleClicked: params => this.showDetails(params.data),
       cacheQuickFilter: true,
       floatingFilter: true,
-      getRowHeight: params => {
+/*       getRowHeight: params => {
         return (
           params.api?.getSizesForCurrentTheme().rowHeight * 3
         );
-      }
+      } */
     }
     this.columnDefs = this.getColumnDefs();
     this.defaultColDef = {
@@ -260,7 +260,8 @@ export class TicketsOverviewComponent {
         field: 'description',
         width: 300,
         filter: 'agTextColumnFilter',
-        cellStyle: { 'white-space': 'normal' }
+        cellStyle: { 'white-space': 'normal' },
+        wrapText: true,
       },
       {
         headerName: 'Answer',
